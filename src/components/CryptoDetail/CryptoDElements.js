@@ -46,7 +46,7 @@ export const StatsContainer = styled(Col)`
     font-weight: 700;
     font-size: 1.4rem;
     margin-top: 20px;
-    color: #d9d9d9;
+    color: #0071bd;
   }
   @media screen and (max-width: 1000px) {
     flex-direction: column;
@@ -122,7 +122,7 @@ export const CoinLink = styled(Row)`
   padding: 20px;
 
   a {
-    color: #d9d9d9;
+    color: #0071bd;
     font-weight: 700;
     font-size: 1rem;
   }

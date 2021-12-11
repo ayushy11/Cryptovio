@@ -16,11 +16,34 @@ import Footer from "./components/Footerz";
 const AppM = styled.div`
   display: flex;
   overflow: hidden;
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    overflow: hidden;
+  }
 `;
 
 const Main = styled.div`
   flex: 0.8;
   width: 100%;
+
+  @media screen and (max-width: 1300px) {
+    margin-left: 0px;
+  }
+  @media screen and (max-width: 1170px) {
+    margin-left: 0px;
+  }
+  @media screen and (max-width: 1000px) {
+    margin-left: 5px;
+  }
+  @media screen and (max-width: 900px) {
+    margin-left: 15px;
+  }
+  @media screen and (max-width: 800px) {
+    flex: 1;
+    margin-top: 90px;
+    margin-left: 0px;
+    margin-right: 10px;
+  }
 `;
 
 const FooterM = styled.div`
@@ -34,6 +57,9 @@ const FooterM = styled.div`
 const NavbarM = styled.div`
   flex: 0.2;
   background-color: rgb(0, 21, 41);
+  @media screen and (max-width: 800px) {
+    flex: 1;
+  }
 `;
 
 const RoutesM = styled.div`

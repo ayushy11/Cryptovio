@@ -6,6 +6,7 @@ import millify from "millify";
 import { useGetCryptosQuery } from "../../services/cryptoApi";
 import Cryptocurrencies from "../CryptoCurrency";
 import News from "../Newz";
+import { HomeTitle, HomeSTitle, HomeHContainer, HomeHeading } from "./HomeElements";
 
 const { Title } = Typography;
 
@@ -19,9 +20,9 @@ function Homepage() {
 
   return (
     <>
-      <Title level={2} className="heading">
+      <HomeHeading level={2}>
         Global Crypto Stats
-      </Title>
+      </HomeHeading>
       <Row>
         <Col span={12}>
           <Statistic title="Total Crptocurrency" value={globalStats.total} />
@@ -51,23 +52,19 @@ function Homepage() {
           />
         </Col>
       </Row>
-      <div className="home-heading-container">
-        <Title level={2} className="home-title">
-          Top 10 Cryptocurrencies in the world
-        </Title>
-        <Title level={3} className="show-more">
+      <HomeHContainer>
+        <HomeTitle level={2}>Top 10 Cryptocurrencies in the world</HomeTitle>
+        <HomeSTitle level={3}>
           <Link to="/cryptocurrencies">Show more</Link>
-        </Title>
-      </div>
+        </HomeSTitle>
+      </HomeHContainer>
       <Cryptocurrencies simplified />
-      <div className="home-heading-container">
-        <Title level={2} className="home-title">
-          Latest Crypto news
-        </Title>
-        <Title level={3} className="show-more">
+      <HomeHContainer>
+        <HomeTitle level={2}>Latest Crypto news</HomeTitle>
+        <HomeSTitle level={3}>
           <Link to="/news">Show more</Link>
-        </Title>
-      </div>
+        </HomeSTitle>
+      </HomeHContainer>
       <News simplified />
     </>
   );

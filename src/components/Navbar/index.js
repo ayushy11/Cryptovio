@@ -1,16 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Menu, Avatar } from "antd";
 import { Link } from "react-router-dom";
-import { Logo, LogoContainer, NavContainer } from "./NavbarElements";
+import {
+  Logo,
+  LogoContainer,
+  NavContainer,
+  MenuButton,
+} from "./NavbarElements";
 import {
   HomeOutlined,
   MoneyCollectOutlined,
   BulbOutlined,
   FundOutlined,
+  MenuOutlined,
 } from "@ant-design/icons";
 import icon from "../../images/cryptocurrency.png";
 
 function Navbar() {
+  const [activeMenu, setActiveMenu] = useState(true);
+  const [screenSize, setScreenSize] = useState(null);
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (screenSize < 768) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [screenSize]);
+
   return (
     <>
       <NavContainer>
@@ -20,23 +44,28 @@ function Navbar() {
             <Typography.Title level={2}>
               <Link to="/">Cryptovio</Link>
             </Typography.Title>
+            <MenuButton onClick={() => setActiveMenu(!activeMenu)}>
+              <MenuOutlined style={{ background: "#001529", color: "white" }} />
+            </MenuButton>
           </Logo>
         </LogoContainer>
 
-        <Menu theme="dark">
-          <Menu.Item icon={<HomeOutlined />}>
-            <Link to="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item icon={<FundOutlined />}>
-            <Link to="/cryptocurrencies">Cryptocurrencies</Link>
-          </Menu.Item>
-          <Menu.Item icon={<MoneyCollectOutlined />}>
-            <Link to="/exchanges">Exchanges</Link>
-          </Menu.Item>
-          <Menu.Item icon={<BulbOutlined />}>
-            <Link to="/news">News</Link>
-          </Menu.Item>
-        </Menu>
+        {activeMenu && (
+          <Menu theme="dark" className="ant-menu">
+            <Menu.Item icon={<HomeOutlined />}>
+              <Link to="/">Home</Link>
+            </Menu.Item>
+            <Menu.Item icon={<FundOutlined />}>
+              <Link to="/cryptocurrencies">Cryptocurrencies</Link>
+            </Menu.Item>
+            <Menu.Item icon={<MoneyCollectOutlined />}>
+              <Link to="/exchanges">Exchanges</Link>
+            </Menu.Item>
+            <Menu.Item icon={<BulbOutlined />}>
+              <Link to="/news">News</Link>
+            </Menu.Item>
+          </Menu>
+        )}
       </NavContainer>
     </>
   );

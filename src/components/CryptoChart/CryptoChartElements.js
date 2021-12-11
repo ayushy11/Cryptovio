@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Col, Row, Typography } from "antd";
-const { Title } = Typography;
 
 export const ChartHeader = styled(Row)`
   display: flex;
