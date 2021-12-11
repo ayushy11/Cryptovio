@@ -7,6 +7,7 @@ import { useGetCryptosQuery } from "../../services/cryptoApi";
 import Cryptocurrencies from "../CryptoCurrency";
 import News from "../Newz";
 import { HomeTitle, HomeSTitle, HomeHContainer, HomeHeading } from "./HomeElements";
+import Loader from "../Loader";
 
 const { Title } = Typography;
 
@@ -16,7 +17,7 @@ function Homepage() {
 
   const globalStats = data?.data?.stats;
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader />;
 
   return (
     <>

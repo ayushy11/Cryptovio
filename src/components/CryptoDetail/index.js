@@ -35,6 +35,7 @@ import {
   CoinLink,
 } from "./CryptoDElements";
 import CryptoChart from "../CryptoChart";
+import Loader from "../Loader";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -50,7 +51,7 @@ function CryptoDetails() {
   });
   const cryptoDetails = data?.data?.coin;
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader />;
 
   console.log("-----------------", cryptoDetails);
 

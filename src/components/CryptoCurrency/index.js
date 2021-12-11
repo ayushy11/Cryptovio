@@ -5,6 +5,7 @@ import { Card, Row, Col, Input } from "antd";
 
 import { useGetCryptosQuery } from "../../services/cryptoApi";
 import { SearchCrypto } from "./CryptoElements";
+import Loader from "../Loader";
 
 function Cryptocurrencies({ simplified }) {
   const count = simplified ? 10 : 100;
@@ -23,7 +24,7 @@ function Cryptocurrencies({ simplified }) {
 
   console.log(cryptos);
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader />;
 
   return (
     <>
