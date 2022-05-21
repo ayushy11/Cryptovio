@@ -1,32 +1,33 @@
 import React from "react";
-import { Typography, Row, Col, Statistic } from "antd";
+import { Row, Col, Statistic } from "antd";
 import { Link } from "react-router-dom";
 import millify from "millify";
 
 import { useGetCryptosQuery } from "../../services/cryptoApi";
 import Cryptocurrencies from "../CryptoCurrency";
 import News from "../Newz";
-import { HomeTitle, HomeSTitle, HomeHContainer, HomeHeading } from "./HomeElements";
+import {
+  HomeTitle,
+  HomeSTitle,
+  HomeHContainer,
+  HomeHeading,
+} from "./HomeElements";
 import Loader from "../Loader";
 
-const { Title } = Typography;
-
 function Homepage() {
-  const { data, isFetching } = useGetCryptosQuery(10);
-  console.log(data);
+  const { res, isFetching } = useGetCryptosQuery(10);
+  console.log("v2", res);
 
-  const globalStats = data?.data?.stats;
+  const globalStats = res?.data?.data?.stats;
 
   if (isFetching) return <Loader />;
 
   return (
     <>
-      <HomeHeading level={2}>
-        Global Crypto Stats
-      </HomeHeading>
+      <HomeHeading level={2}>Global Crypto Stats</HomeHeading>
       <Row>
         <Col span={12}>
-          <Statistic title="Total Crptocurrency" value={globalStats.total} />
+          <Statistic title="Total Cryptocurrency" value={globalStats.total} />
         </Col>
         <Col span={12}>
           <Statistic

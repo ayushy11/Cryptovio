@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Col, Row, Typography } from "antd";
+import { Col, Row } from "antd";
 
 export const ChartHeader = styled(Row)`
   display: flex;

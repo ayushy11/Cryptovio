@@ -49,7 +49,7 @@ function Cryptocurrencies({ simplified }) {
             <Link to={`/crypto/${currency.id}`}>
               <Card
                 title={`${currency.rank}. ${currency.name}`}
-                extra={<img src={currency.iconUrl} style={{ width: "35px" }} />}
+                extra={<img src={currency.iconUrl} style={{ width: "35px" }} alt="currency"/>}
                 hoverable
               >
                 <p>Price: ${millify(currency.price)}</p>

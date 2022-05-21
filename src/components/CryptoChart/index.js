@@ -1,7 +1,6 @@
 import React from "react";
-import { Chart as ChartJS } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
-import { Col, Row, Typography } from "antd";
+import {  Typography } from "antd";
 import { ChartHeader, PriceContainer } from "./CryptoChartElements";
 
 const { Title } = Typography;
